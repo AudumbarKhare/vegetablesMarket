@@ -1,0 +1,97 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+
+<div class="container-fluid">
+    <br>
+    <div class="row" *ngIf="addProductToCard.length>0; else notProductAvailable">
+        <div class="col-md-8">
+            <h2 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Your cart Product</span>
+            </h2>
+            <table class="table table-bordered" id="tbl_add_to_card">
+                <thead>
+                    <tr class="bg-dark text-white text-center">
+                        <th [ngStyle]="{'width':'10%'}">Image</th>
+                        <th>Product</th>
+                        <th [ngStyle]="{'width':'8%'}">Price</th>
+                        <th [ngStyle]="{'width':'8%'}">Unit</th>
+                        <th [ngStyle]="{'width':'10%'}">QTY</th>
+                        <th [ngStyle]="{'width':'8%'}">Dis</th>
+                        <th [ngStyle]="{'width':'8%'}">VAT</th>
+                        <th [ngStyle]="{'width':'12%'}">Total</th>
+                        <th [ngStyle]="{'width':'5%'}"></th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="addProductToCard.length>0; else notProductAvailable">
+                    <tr class="text-center" *ngFor="let addProduct of addProductToCard;let i=index">
+                        <td><img src="{{addProduct.item_image}}" [ngStyle]="{'height':'30px'}"></td>
+                        <td>{{addProduct.item_name}}</td>
+                        <td [ngStyle]="{'text-align':'right'}">{{addProduct.item_sales_price | number:'0.2-2'}}</td>
+                        <td [ngStyle]="{'text-align':'center'}">{{addProduct.uom_code}}</td>
+                        <td>
+                            <ul class="inlineList">
+                                <li>
+                                    <mat-icon (click)="addQty(addProduct,1)">add_circle</mat-icon>
+                                </li>
+                                <li><input type="text" value="{{addProduct.qty}}" #productQty></li>
+                                <li>
+                                    <mat-icon (click)="addQty(addProduct,-1)">remove_circle</mat-icon>
+                                </li>
+                            </ul>
+
+                        </td>
+                        <td [ngStyle]="{'text-align':'right'}">{{0|number:'0.2-2'}}</td>
+                        <td [ngStyle]="{'text-align':'right'}">{{0|number:'0.2-2'}}</td>
+                        <td [ngStyle]="{'text-align':'right'}">{{addProduct.item_sales_price*addProduct.qty|
+                            number:'0.2-2'}}</td>
+                        <td><i class="fa fa-times-circle" (click)="removeProduct(addProduct)"
+                                [ngStyle]="{'height':'20px'}"></i></td>
+                    </tr>
+                </tbody>
+
+                <!-- <ng-template #notProductAvailable>
+                    <tbody>
+                        <td colspan="9">Product Not Available...</td>
+                    </tbody>
+                </ng-template> -->
+
+            </table>
+        </div>
+        <div class="col-md-4">
+            <h2 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Your Bill Details</span>
+            </h2>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <span>Gross Amount</span>
+                    <strong><i class="fa fa-inr"></i> {{_addToCardService.totalCardPrice|number:'0.2'}} </strong>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <span>Discount Amount</span>
+                    <strong><i class="fa fa-inr"></i> {{0|number:'0.2'}} </strong>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <span>Tax Amount</span>
+                    <strong><i class="fa fa-inr"></i> {{0|number:'0.2'}} </strong>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <span>Grand Amount</span>
+                    <strong><i class="fa fa-inr"></i> {{_addToCardService.totalCardPrice|number:'0.2'}}</strong>
+                </li>
+
+                <a class="btn btn-warning mt-2 mb-2" [routerLink]="['/productList']">Continue Shipping</a>
+                <a class="btn btn-info" href="javascript:viod(0)">Checkout</a>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <ng-template #notProductAvailable>
+            <div class="col-md-12">
+                <br><br>
+                <app-no-product-found [title]="messageTitle" [description]="messageDescription"></app-no-product-found>
+            </div>
+        </ng-template>
+    </div>
+    <br><br><br>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,85 @@
+<div class="search-box mt-2 border-bottom pb-3">
+    <input type="text" class="searchTxt" placeholder="Type to Product Name.." autocomplete="off" #serachText>
+    <!-- <a href="javascript:void(0)" class="serarchBtn" (click)="serachProduct(serachText.value)">
+        <i class="fa fa-search fa-2x"></i>
+    </a> -->
+</div>
+<div class="range border-bottom py-2">
+    <h3 class="title mb-3">
+        Price
+    </h3>
+    <div class="title_block">
+        <ul>
+            <li>
+                <a href="javascript:void(0)" (click)="showProductByPriceRange('100','0')">Over <i class="fa fa-inr"></i>
+                    100</a>
+            <li class="my-1">
+                <a href="javascript:void(0)" (click)="showProductByPriceRange('0','20')"><i class="fa fa-inr"></i> 0 -
+                    <i class="fa fa-inr"></i> 20</a>
+            </li>
+            <li class="my-1">
+                <a href="javascript:void(0)" (click)="showProductByPriceRange('21','40')"><i class="fa fa-inr"></i> 21 -
+                    <i class="fa fa-inr"></i> 40</a>
+            </li>
+            <li class="my-1">
+                <a href="javascript:void(0)" (click)="showProductByPriceRange('41','60')"><i class="fa fa-inr"></i> 41 -
+                    <i class="fa fa-inr"></i> 60</a>
+            </li>
+            <li class="my-1">
+                <a href="javascript:void(0)" (click)="showProductByPriceRange('61','80')"><i class="fa fa-inr"></i> 61 -
+                    <i class="fa fa-inr"></i> 80</a>
+            </li>
+            <li class="my-1">
+                <a href="javascript:void(0)" (click)="showProductByPriceRange('81','100')"><i class="fa fa-inr"></i> 81
+                    - <i class="fa fa-inr"></i> 100</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<div class="range border-bottom py-2">
+    <h3 class="title mb-3">Discount</h3>
+    <ul>
+        <li>
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            <a href="javascript:void(0)"><span class="span" (click)="displayProductByDiscount('1','5')">5% or
+                    Less</span></a>
+        </li>
+        <li>
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            <a href="javascript:void(0)"><span class="span" (click)="displayProductByDiscount('6','10')">10% or
+                    Less</span></a>
+        </li>
+        <li>
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            <a href="javascript:void(0)"><span class="span" (click)="displayProductByDiscount('11','20')">20% or
+                    Less</span></a>
+        </li>
+        <li>
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            <a href="javascript:void(0)"><span class="span" (click)="displayProductByDiscount('31','40')">30% or
+                    Less</span></a>
+        </li>
+        <li>
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            <a href="javascript:void(0)"><span class="span" (click)="displayProductByDiscount('41','50')">50% or
+                    Less</span></a>
+        </li>
+        <li>
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            <a href="javascript:void(0)"><span class="span" (click)="displayProductByDiscount('51','0')">50% or
+                    More</span></a>
+        </li>
+
+    </ul>
+</div>
+<div class="range border-bottom py-2">
+    <h3 class="title mb-3">Category</h3>
+    <ul>
+        <li *ngFor="let category of categoryList"><i class="fa fa-arrow-right" aria-hidden="true"></i>
+            <a href="javascript:void(0)"><span class="span"
+                    (click)="showProductByCategory(category.category_id)">{{category.category_name}}</span></a>
+        </li>
+
+    </ul>
+</div>

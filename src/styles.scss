@@ -1,0 +1,487 @@
+.navbar ul li a{
+    color:white;
+    
+}
+.search input[type=text]{ 
+    width:400px; 
+    height:35px; 
+    border-radius:25px; 
+    border: none; 
+} 
+
+button{
+    outline: none;
+}
+      
+.search{ 
+    float:right; 
+    margin:7px; 
+} 
+      
+.search button{ 
+    
+    color: #f2f2f2; 
+    float: right; 
+    padding: 5px 10px; 
+    margin-right: 16px; 
+    font-size: 12px; 
+    border: none; 
+    cursor: pointer; 
+}  
+@media (max-width: 990px) {
+    .contact-menu {
+     display: none !important;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1087px) {
+    .main-menu .left-side-menu-item .nav-link,
+.main-menu .right-side-menu-item .nav-link {
+        font-size: 16px !important;
+    }
+  }
+.main-menu .left-side-menu-item .nav-link,
+.main-menu .right-side-menu-item .nav-link{
+    color: #232B38 !important;
+    font-size: 18px;
+    margin: 0px 3px;
+    font-family:"Raleway-bold";
+}
+.left-side-menu-item .nav-link.active,
+ .left-side-menu-item .nav-link:hover {
+    background:#EEBF00;
+    padding: 6px 0;
+    border-radius: 15px 15px 15px 15px;
+    color: #FEFEFE !important;
+}
+
+//header css//
+header.hero{
+    padding-bottom: 7%;
+    background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('assets/images/5.jpg');
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    background-size: contain, cover;
+    overflow:hidden;
+}
+header.hero .container{
+    margin-top: 10%;
+    position: relative;
+}
+
+header.hero .welcome{
+    font-size: 20px;
+    margin-bottom:0.25rem;
+}
+header.hero .welcome span{
+    font-family:"Raleway-bold";
+    color:var(--secondary);
+    margin-right:0.75rem;
+
+}
+header.hero h1{
+    font-family:"Raleway-extrabold";
+    color:var(--secondary);
+    font-size: 2.5rem;
+    margin-bottom:0.75rem;
+}
+header.hero h1 span{
+    color:#EEBF00 !important;
+}
+header.hero p{
+    font-family: "Raleway-medium";
+    width:50%;
+    line-height:1.5;
+    margin-bottom:1rem;
+    font-size: 20px;
+}
+header.hero button:first-child{
+    margin-right:0.50rem;
+}
+
+header.hero .hero-image{
+    position:absolute;
+    top:-100px;
+    right:40px;
+}
+@media (max-width: 576px){
+header.hero .hero-image {
+    right: -235px;
+    top: 150px;
+}
+
+}
+@media (max-width: 992px){
+header.hero .hero-image {
+    right: -160px;
+    top: 100px;
+}
+}
+.flex{
+    display:flex;
+}
+section{
+    padding: 4rem 0;
+}
+section.top-product{
+    background: #f0f0f0;
+}
+div{
+    display: block;
+}
+.container{
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.section-heading{
+    font-family: "Ralway-bold";
+    text-align: center;
+    position: relative;
+    margin-bottom: 6rem;
+}
+.section-heading:after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 30px;
+    background-image: url(assets/icons/hr.svg);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    position: absolute;
+    bottom: -40px;
+}
+.top-product .slider{
+    position: relative;
+    padding-left: 1px;
+}
+
+.slick-slider {
+    width: 90%;
+    margin: auto;
+   
+  }
+  
+
+section.product-list .card,
+section.top-product .container .slider .slide .card{
+    position: relative;
+    margin-bottom: 10px;
+}
+
+section.product-list .card .discount,
+section.top-product .container .slider .slide .card .discount{
+    position: absolute;
+    background-color: #fa0;
+    text-align: center;
+    display: block;
+    height: 30px;
+    width: 80px;
+    border-radius: 0 15px 15px 0;
+    line-height: 30px;
+    left: -9px;
+    color: #fff;
+}
+
+section.product-list .card .discount::after,
+section.top-product .container .slider .slide .card .discount::after{
+   border-top:6px solid #c80;
+   content: '';
+  
+   position: absolute;
+   bottom: -6px;
+   left: 0;
+   border-left:8px solid transparent;
+   border-right: 0px solid transparent;
+}
+
+section.product-list .card img,
+section.top-product .container .slider .slide .card img{
+    height: 200px !important;
+    object-fit: contain;
+    padding-bottom: 1rem;
+}
+section.product-list .card .card-body h2 a,
+section.top-product .container .slider .slide .card .card-body h2 a{
+    font-family: "Raleway-bold";
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
+    margin-top: -40px;
+    color:#232B38;
+}
+section.product-list .card .card-body h2 a:hover,
+section.top-product .container .slider .slide .card .card-body h2 a:hover{
+    text-decoration: none;
+}
+
+section.product-list .card .card-body .stars,
+section.top-product .container .slider .slide .card .card-body .stars{
+    margin-bottom: 0.5rem;
+}
+section.product-list .card .card-body .stars i,
+section.top-product .container .slider .slide .card .card-body .stars i{
+    margin-right: 5px;
+}
+section.product-list .card .card-body .price,
+section.top-product .container .slider .slide .card .card-body .price{
+    font-family: "Raleway-medium";
+    color: #Fe4545;
+    margin-bottom: 1rem;
+}
+
+section.product-list .card .card-body button,
+section.top-product .container .slider .slide .card .card-body button{
+ outline: none;
+}
+
+section.product-list .card .card-body button a,
+section.top-product .container .slider .slide .card .card-body button a{
+    color: #ffffff;
+}
+//////////////////////////////////
+.top-product .slider-button{
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: #EEBF00 !important;
+    cursor: pointer;
+    outline: none;
+    border-radius: 4px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    -ms-border-radius:4px;
+    -o-border-radius:4px;
+}
+.top-product .btn-wrapper{
+    margin-top: 2rem;
+}
+.top-product .btn-wrapper .btn,
+section.about-meal .about-meal-wrap .btn
+{
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 16px;
+ }
+.prev-button{
+    position: absolute;
+    top: 46%;
+    left: -1rem;
+    z-index: 1;
+    
+}
+.next-button{
+    position: absolute;
+    top: 46%;
+    right:-1rem;
+    z-index: 1;
+    
+}
+////////////////////////
+.items-center{
+    align-items: center;
+}
+justify-center{
+    justify-content: center;
+}
+.item-center{
+    align-items: center;
+}
+/////////////////////
+.flex-1{
+    flex: 1;
+}
+section.about-meal img{
+    width: 85%;
+}
+section.about-meal .about-meal-wrap .flex-1 h2{
+    margin-top: 20px;
+    font-family: "Raleway-bold";
+    font-size:1.5rem;
+    color: #232B38;
+    margin-bottom: 2rem;
+    line-height: 1.3;
+    font-weight: bold;
+    
+}
+section.about-meal .about-meal-wrap p {
+    line-height: 2;
+    margin-bottom: 4rem;
+    display: block;
+    font-size: 1rem;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+    @media (max-width: 768px){.about-meal .about-meal-wrap{
+        flex-direction:column;
+    }
+    .about-meal .about-meal-wrap img{
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+}
+
+/////////////////////
+
+section.our-services {
+    background: #f0f0f0;
+    position: relative;
+    z-index: 0;
+}
+section.our-services .card-wrapper {
+    //margin-right: -2rem;
+    margin-top: 8rem;
+}
+section.our-services .card-wrapper .card{
+    margin: 0 auto;
+    float: none; 
+    margin-bottom: 10px; 
+}
+
+section.our-services .card-wrapper .card img{
+    width:148px; 
+    height:148px; 
+    border-radius:100%; 
+    align-items: center;
+}
+section.our-services .card-wrapper .card h3{ 
+    color:#2a2a2a; 
+    font-size:20px; 
+    font-weight:500; 
+    padding:6px 0;
+    text-transform:uppercase;
+ }
+
+ section.our-services .card-wrapper .card  h3 a{
+    text-decoration:none;
+      color:#2a2a2a;
+  }
+  section.our-services .card-wrapper .card h3 a:hover{
+      color:#337ab7;
+  }
+  section.our-services .card-wrapper .card p{ 
+     color:#2a2a2a; 
+     font-size:13px; 
+     line-height:20px; 
+     font-weight:400;
+  }
+  section.our-services .card-wrapper .card .follow-us{
+      margin-left: -32px;
+  }
+  section.our-services .card-wrapper .card .follow-us li{ 
+      display:inline-block; 
+      width:auto; 
+      margin:0 5px;
+  }
+  section.our-services .card-wrapper .card li .fa{ 
+     font-size:24px; 
+     color:#767676;
+  }
+  section.our-services .card-wrapper .card li .fa:hover{ 
+     color:#025a8e;
+  }
+
+/////////////////////////////
+
+.icon-fot {
+    text-align: center;
+}
+.col-4 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+.icon-fot i {
+    font-size: 41px;
+    line-height: 1.4;
+    color: #0879c9;
+    border: 1px solid #999;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    text-align: center;
+    margin-top: 5px;
+    padding: 5px;
+}
+.fa, .fas {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+.fa-dolly:before {
+    content: "\f472";
+}
+.text-form-footer h3 {
+    color: #000;
+    font-size: 27px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.text-form-footer p {
+    margin: 0;
+    letter-spacing: 1px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #999;
+    font-family: 'Open Sans', sans-serif;
+}
+//////////////////
+.footer{
+    padding:5em 0 2em;
+    background:#232B38;
+}
+.footer .container{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.footer_grid{
+    padding: 0;
+}
+.footer_grid h3{
+    color: #FEFEFE;
+    font-size: 1.5em;
+    margin-bottom: 1.8em;
+    text-transform: uppercase;
+}
+.footer_grid ul li{
+    list-style-type: none;
+   margin-bottom: 1em;
+   color: #afafaf;
+}
+.footer_grid ul.address li i.fa{
+    font-size: 15px;
+}
+.footer_grid ul.address li i{
+    color: #fe9126;
+    border: 1px solid #fe9126;
+    padding: .5em;
+    margin-right: 1em;
+}
+.footer_grid ul.address li span{
+    display: block;
+    margin-left: 3em;
+}
+.footer_grid ul li a{
+    color: #afafaf;
+    text-decoration: none;
+}
+.footer_grid ul li a:hover {
+    color:#fe9126;
+}
+.footer_grid .info li i.fa.fa-arrow-right {
+    color: #fe9126;
+    margin-right: 10px;
+}
+//////////////////////////////////
+.sticky-offset {
+    top: 80px;
+    
+}
+#body-row {
+    margin-left:0;
+    margin-right:0;
+}

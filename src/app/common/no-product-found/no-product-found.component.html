@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-md-12 text-center" [ngStyle]="{'height':'55vh'}">
+        <div class="error-template">
+            <h1>Oops!</h1>
+            <h2>{{title}}</h2>
+            <div class="error-details">
+                {{description}}
+            </div>
+            <div class="error-actions mt-2">
+                <a mat-raised-button color="primary" [routerLink]="['/']" class="rounded-pill">
+                    <i class="fa fa-home"></i> Take Me Home
+                </a>
+                <a mat-raised-button color="warn" [routerLink]="['/productList']"  class="ml-2 rounded-pill">
+                    <span class="fa fa-cart-plus"></span> Our Products </a>
+            </div>
+        </div>
+    </div>
+</div>

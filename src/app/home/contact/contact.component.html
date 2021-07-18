@@ -1,0 +1,71 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+<div class="container py-5">
+  <mat-card>
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="tittle text-center mb-lg-5 mb-sm-4 mb-3">
+          <span>A</span>ddress
+        </h3>
+        <div class="welcome-left text-center">
+          <h3>Vegetables Market</h3>
+
+          <p>Flat No. 2; S. No. 87/5B;Azadadi;</p>
+          <p>Trimurti Colony;Near Sutar Hospital;</p>
+          <p>Kotharud; Pune-411029</p>
+        </div>
+
+      </div>
+      <div class="col-md-6">
+        <form [formGroup]="frmContact" (ngSubmit)="addContact()">
+          <!--Name-->
+          <mat-form-field class="label_name">
+            <mat-label>Name</mat-label>
+            <mat-icon matPrefix aria-hidden="false"><i class="fa fa-user"></i></mat-icon>
+            <input type="text" matInput formControlName="name">
+          </mat-form-field>
+          <!--name validation-->
+          <div class="text-danger" *ngIf="frmContact.controls['name'].invalid && frmContact.controls['name'].touched">
+            <div *ngIf="frmContact.controls['name'].errors?.required">
+              Please Enter The Name
+            </div>
+          </div>
+
+          <!--Email-->
+          <mat-form-field class="label_email">
+            <mat-label>Email</mat-label>
+            <mat-icon matPrefix aria-hidden="false"><i class="fa fa-envelope"></i></mat-icon>
+            <input type="text" matInput formControlName="email">
+          </mat-form-field>
+          <!--email validation-->
+          <div class="text-danger" *ngIf="frmContact.controls['email'].invalid && frmContact.controls['email'].touched">
+            <div *ngIf="frmContact.controls['email'].errors?.required">
+              Please Enter Email...
+            </div>
+            <div *ngIf="frmContact.controls['email'].errors?.email">
+              Please Enter Valid Email...
+            </div>
+          </div>
+
+          <!--Message-->
+          <mat-form-field class="label_address">
+            <mat-label>Message</mat-label>
+            <textarea matInput rows="10" formControlName="message"></textarea>
+          </mat-form-field>
+          <!--message validation-->
+          <div class="text-danger" *ngIf="frmContact.controls['message'].invalid && frmContact.controls['message'].touched">
+            <div *ngIf="frmContact.controls['message'].errors?.required">
+              Please Enter The Message...
+            </div>
+          </div>
+          <button type="submit" mat-raised-button color="warn" [disabled]="!frmContact.valid"
+            class="rounded-pill">Submit</button>
+        </form>
+
+
+      </div>
+    </div>
+  </mat-card>
+
+</div>
+<app-footer></app-footer>

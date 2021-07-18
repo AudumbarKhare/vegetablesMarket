@@ -1,0 +1,80 @@
+<div class="container-fluild">
+    <app-header></app-header>
+    <app-navbar></app-navbar>
+
+    <section class="product-list">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-md-12" *ngIf="favoriteItem.length>0; else elseFavoriteItemNotAvaible">
+                    <div class="row">
+                        <div *ngFor="let f_item of favoriteItem" class="col-md-3">
+                            <div class="card shadow">
+                                <a [routerLink]="['/productDetails',f_item.item_id]">
+                                    <img class="card-img-top" src="{{ f_item.item_image }}" alt="slide.img">
+                                </a>
+                                <hr>
+                                <div class="card-body">
+                                    <h2 class="text-center">
+                                        <a [routerLink]="['/productDetails', f_item.item_id]">
+                                            {{f_item.item_name | titlecase}}
+                                        </a>
+                                    </h2>
+                                    <div class="stars flex justify-center item-center justify-content-center">
+                                        <i class="fa fa-star text-warning"></i>
+                                        <i class="fa fa-star text-warning"></i>
+                                        <i class="fa fa-star text-warning"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="price text-center">
+                                        <i class="fa fa-inr"></i> {{f_item.item_sales_price | number:'0.2-2'}} /
+                                        {{f_item.uom_code}}
+                                    </div>
+                                    <div class="flex justify-content-center">
+                                        <button mat-mini-fab class="bg-warning" (click)="addToCard(f_item)">
+                                            <mat-icon>shopping_cart</mat-icon>
+                                        </button>
+
+                                        <button mat-mini-fab color="warn" class="ml-3"
+                                            (click)="deleteFavoriteProduct(f_item);">
+                                            <mat-icon>delete</mat-icon>
+                                        </button>
+                                        <button mat-mini-fab color="primary" class="ml-3">
+                                            <a [routerLink]="['/productDetails',f_item.item_id]">
+                                                <mat-icon>visibility</mat-icon>
+                                            </a>
+                                        </button>
+                                        <!--<button class="button_add shadow" (click)="addToCard(product)"> <i class="fa fa-shopping-cart"></i> Add To Card</button>-->
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col-md-12 text-center">
+                            <pagination-controls id="product_list" (pageChange)="page = $event">
+                            </pagination-controls>
+                        </div>
+                    </div> -->
+
+                </div>
+
+                <ng-template #elseFavoriteItemNotAvaible>
+                    <div class="col-md-12">
+                        <app-no-product-found [title]="messageTitle" [description]="messageDescription"></app-no-product-found>
+                    </div>
+                </ng-template>
+
+            </div>
+        </div>
+    </section>
+    <!-- <ul>
+        <li *ngFor="let f_item of favoriteItem">{{f_item?.item_name}}</li>
+    </ul> -->
+    <app-footer></app-footer>
+</div>

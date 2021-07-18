@@ -1,0 +1,82 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+<div class="container-fluid mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <mat-card class="example-card">
+                <mat-card-content>
+                  <div class="signup-content">
+                      <div class="signup-form">
+                          <h2 class="form-title pl-5" [ngStyle]="{'font-size':'30px'}">Sign Up</h2>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-6 px-5">
+                               <form class="register-form" [formGroup]="frm_registration" (ngSubmit)="userRegistration()">
+                                    <mat-form-field class="user-name">
+                                        <mat-label >User Name</mat-label> 
+                                        <mat-icon matPrefix><i class="fa fa-user"></i></mat-icon>
+                                        <input type="text" matInput formControlName="username">
+                                        <mat-error *ngIf="frm_registration.controls['username'].invalid && frm_registration.controls['username'].touched">
+                                            <p *ngIf="f.username.errors?.required">Please Enter the Username...</p>
+                                        </mat-error>
+                                    </mat-form-field>
+                                        
+                                    <mat-form-field class="email">
+                                        <mat-label> Email Id</mat-label> 
+                                        <mat-icon class="mr-1" matPrefix><i class="fa fa-envelope"></i> </mat-icon>
+                                        <input type="text" matInput formControlName="email">
+                                        <mat-error *ngIf="frm_registration.controls['email'].invalid && frm_registration.controls['email'].touched">
+                                            <p *ngIf="f.email.errors?.required">Please Enter The Email Id...</p> 
+                                            <p *ngIf="f.email.errors?.email">Please Enter The Valid Email Id...</p>     
+                                            <p *ngIf="f.email.errors?.uniqueEmail">Email All Ready Exit ...</p>
+                                        </mat-error>
+                                    </mat-form-field>
+                                   
+
+                                    <mat-form-field class="password">
+                                        <mat-label>Password</mat-label> 
+                                        <mat-icon matPrefix><i class="fa fa-lock"></i></mat-icon>
+                                        <input type="password" matInput formControlName="password">
+                                        <mat-error *ngIf="frm_registration.controls['password'].invalid && frm_registration.controls['password'].touched">
+                                            <p *ngIf="f.password.errors?.required">Please Enter The Password...</p>
+                                            <p *ngIf="f.password.errors?.minlength">Password must be at least 6 characters</p>
+                                        </mat-error>
+                                    </mat-form-field>
+                                    
+
+                                    <mat-form-field class="re-password">
+                                        <mat-label> Re-Password </mat-label> 
+                                        <mat-icon class="mr-1" matPrefix><i class="fa fa-unlock"></i> </mat-icon>
+                                        <input type="password" matInput formControlName="repassword">
+                                        <mat-error *ngIf="frm_registration.controls['repassword'].invalid && frm_registration.controls['repassword'].touched">
+                                            <p *ngIf="f.repassword.errors?.required">Please Enter The Re-Password...</p>
+                                            <p *ngIf="f.repassword.errors?.mustMatch">Passwords must match</p>
+                                        </mat-error>
+                                    </mat-form-field>
+                                   
+
+                                    <div class="form-group">
+                                        <mat-checkbox class="example-margin" formControlName="acceptterm">I agree all statements in  <a href="#" class="term-service">Terms of service</a></mat-checkbox>  
+                                        <mat-error *ngIf="frm_registration.controls['acceptterm'].invalid && frm_registration.controls['acceptterm'].touched">
+                                            <p *ngIf="f.acceptterm.errors?.required">Accept Ts & Cs is required...</p>
+                                        </mat-error>
+                                    </div>
+                                    <button mat-raised-button color="primary" [disabled]="frm_registration.invalid" class="rounded-pill">Register</button>
+                                    <button type="button" mat-raised-button color="warn" (click)="reset()" class="ml-2 rounded-pill">Reset</button>
+                                </form>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="signup-image">
+                                <figure><img src="../../../assets/images/signup-image.jpg" alt="sing up image"></figure>
+                            </div>
+                         </div>
+                      </div>
+                    
+                  </div>
+                </mat-card-content>
+              </mat-card>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

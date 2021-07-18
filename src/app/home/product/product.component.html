@@ -1,0 +1,76 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+<section class="product-list">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 bg-light shadow">
+                <app-right-side-bar (productEvent)="change_name_age($event)"
+                    (productCategory)="getProductByCategory($event)" (productDiscount)="showProductByDiscount($event)"
+                    (productSerach)="serachProduct($event)"></app-right-side-bar>
+            </div>
+            <div class="col-md-9" *ngIf="productList.length > 0; else serachProductNotAvaible">
+                <div class="row">
+                    <div *ngFor="let product of productList | paginate:{id:'product_list',
+                    itemsPerPage: 9, currentPage: page }" class="col-md-4">
+
+                        <mat-card class="card">
+                            <div class="discount">{{product.stock_status|titlecase }}</div>
+                            <a [routerLink]="['/productDetails',product.item_id]">
+                                <img mat-card-image class="card-img-top" src="{{ product.item_image }}" alt="slide.img">
+                            </a>
+                            <mat-divider></mat-divider>
+                            <mat-card-content class="card-body">
+                                <h2 class="text-center">
+                                    <a [routerLink]="['/productDetails', product.item_id]">
+                                        {{product.item_name | titlecase}}
+                                    </a>
+                                </h2>
+                                
+                                <div class="stars flex justify-center item-center justify-content-center">
+                                    <i class="fa fa-star text-warning"></i>
+                                    <i class="fa fa-star text-warning"></i>
+                                    <i class="fa fa-star text-warning"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="price text-center">
+                                    <i class="fa fa-inr"></i> {{product.item_sales_price | number:'0.2-2'}} /
+                                    {{product.uom_code}}
+                                </div>
+                                <div class="flex justify-content-center">
+                                    <button mat-mini-fab class="bg-warning" (click)="addToCard(product)">
+                                        <mat-icon>shopping_cart</mat-icon>
+                                    </button>
+
+                                    <button mat-mini-fab color="warn" class="ml-3" (click)="addToFavorite(product)">
+                                        <mat-icon>favorite</mat-icon>
+                                    </button>
+                                    <button mat-mini-fab color="primary" class="ml-3">
+                                        <a [routerLink]="['/productDetails',product.item_id]">
+                                            <mat-icon>visibility</mat-icon>
+                                        </a>
+                                    </button>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <pagination-controls id="product_list" (pageChange)="page = $event">
+                        </pagination-controls>
+                    </div>
+                </div>
+
+            </div>
+            <ng-template #serachProductNotAvaible>
+                <div class="col-md-9">
+                    <app-no-product-found [title]="messageTitle" [description]="messageDescription">
+                    </app-no-product-found>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

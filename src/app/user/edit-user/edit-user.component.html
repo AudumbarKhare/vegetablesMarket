@@ -1,0 +1,134 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-3">
+      <app-user-right-side-menu></app-user-right-side-menu>
+    </div>
+    <div class="col-md-9">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="profile-image-tab" data-toggle="tab" href="#profileImage" role="tab"
+            aria-controls="profileImage" aria-selected="true">Change Profile Image</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-image-tab" data-toggle="tab" href="#userInfo" role="tab"
+            aria-controls="userInfo" aria-selected="false">Edit User Info</a>
+        </li>
+
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <!--Change Image code-->
+        <div class="tab-pane fade show active mt-2 mb-2" id="profileImage" role="tabpanel" aria-labelledby="home-tab">
+          <form [formGroup]="frmChangeImage" (ngSubmit)="saveImage()">
+            <mat-form-field class="registration_id mb-2" [ngStyle]="{'display':'none'}">
+              <mat-label class="ml-1">registration_id</mat-label>
+              <mat-icon matPrefix><i class="fa fa-user"></i></mat-icon>
+              <input type="text" matInput formControlName="registration_id">
+            </mat-form-field>
+            <div class="card text-center">
+              <div class="card-header text-left">
+                <i class="fa fa-picture-o"></i> Change User Image
+              </div>
+              <div class="card-body justify-content-center">
+                <div *ngIf="filePath && filePath !== ''">
+                  <img [src]="filePath" style="width: 250px;height: 250px;">
+                </div>
+                <input type="file" class="mt-1" id="fileName" formControlName="fileName"
+                  (change)="imagePreview($event)" />
+                <input type="hidden" formControlName="imageName" placeholder="File name">
+              </div>
+              <div class="card-footer">
+                <button mat-raised-button color="primary" class="rounded-pill pull-right"
+                  [disabled]="!frmChangeImage.valid">Save</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!--Change Image code end-->
+        <div class="tab-pane fade" id="userInfo" role="tabpanel" aria-labelledby="userInfo">
+          <form [formGroup]="frmEditUser" (ngSubmit)="editUserInfo()">
+            <div class="card mt-2 mb-2">
+              <div class="card-header">
+                <i class="fa fa-pencil-square-o"></i> Edit User Info
+              </div>
+              <div class="card-body">
+
+                <mat-form-field class="registration_id mb-2" [ngStyle]="{'display':'none'}">
+                  <mat-label class="ml-1">registration_id</mat-label>
+                  <mat-icon matPrefix><i class="fa fa-user"></i></mat-icon>
+                  <input type="text" matInput formControlName="registration_id">
+                </mat-form-field>
+                <div class="row">
+                  <div class="col-md-3"></div>
+                  <div class="col-md-6">
+                    <mat-form-field class="inputstyle mb-2">
+                      <mat-label class="ml-1">Username</mat-label>
+                      <mat-icon matPrefix><i class="fa fa-user"></i></mat-icon>
+                      <input type="text" matInput formControlName="username">
+                      <mat-error
+                        *ngIf="!frmEditUser.controls['username'].valid && frmEditUser.controls['username'].touched">
+                        <p *ngIf="frmEditUser.controls['username'].hasError('required')">Please Enter The Username</p>
+                        <p *ngIf="frmEditUser.controls['username'].hasError('minlength')">Please Enter The at least 3
+                          Letters.</p>
+                      </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="inputstyle mb-2">
+                      <mat-label class="ml-1">First Name</mat-label>
+                      <mat-icon matPrefix><i class="fa fa-user"></i></mat-icon>
+                      <input type="text" matInput formControlName="firstname">
+                      <mat-error
+                        *ngIf="!frmEditUser.controls['firstname'].valid && frmEditUser.controls['firstname'].touched">
+                        <p *ngIf="frmEditUser.controls['firstname'].hasError('required')">Please Enter The First Name
+                        </p>
+                      </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="inputstyle mb-2">
+                      <mat-label class="ml-1">Last Name</mat-label>
+                      <mat-icon matPrefix><i class="fa fa-user"></i></mat-icon>
+                      <input type="text" matInput formControlName="lastname">
+                      <mat-error
+                        *ngIf="!frmEditUser.controls['lastname'].valid && frmEditUser.controls['lastname'].touched">
+                        <p *ngIf="frmEditUser.controls['lastname'].hasError('required')">Please Enter The Last Name</p>
+                      </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="inputstyle mb-2">
+                      <mat-label class="ml-1">Phone</mat-label>
+                      <mat-icon matPrefix><i class="fa fa-phone"></i></mat-icon>
+                      <input type="text" matInput formControlName="phone">
+                      <mat-error *ngIf="!frmEditUser.controls['phone'].valid && frmEditUser.controls['phone'].touched">
+                        <p *ngIf="frmEditUser.controls['phone'].hasError('required')">Please Enter The Phone No..</p>
+                        <p *ngIf="frmEditUser.controls['phone'].hasError('minlength')">Please Enter The at least 10 No
+                        </p>
+                        <p *ngIf="frmEditUser.controls['phone'].hasError('maxlength')">Sorry ! You can't Enter Phone No
+                          More Than 13 No</p>
+                      </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="inputstyle mb-2">
+                      <mat-label class="ml-1">Email</mat-label>
+                      <mat-icon matPrefix><i class="fa fa-envelope"></i></mat-icon>
+                      <input type="text" matInput formControlName="email">
+                      <mat-error *ngIf="!frmEditUser.controls['email'].valid && frmEditUser.controls['email'].touched">
+                        <p *ngIf="frmEditUser.controls['email'].hasError('required')">Please Enter The Email Id</p>
+                        <p *ngIf="frmEditUser.controls['email'].hasError('email')">Please Enter The Valid Email</p>
+                      </mat-error>
+                    </mat-form-field>
+                    
+                  </div>
+                  <div class="col-md-3"></div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button mat-raised-button color="primary" class="rounded-pill pull-right"
+                  [disabled]="!frmEditUser.valid">Save</button>
+                <button mat-raised-button color="warn" class="rounded-pill pull-left"
+                  (click)="resetFrom()">Reset</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

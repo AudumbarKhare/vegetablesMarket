@@ -1,0 +1,98 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-3">
+      <app-user-right-side-menu></app-user-right-side-menu>
+    </div>
+    <div class="col-md-9">
+      <form [formGroup]="frmDeliveryAddress" (ngSubmit)="updateDeliveryAddress()">
+        <div class="card">
+          <div class="card-header">
+            <i class="fa fa-address-book-o"></i> Delivery Address
+          </div>
+          <div class="card-body">
+            <div class="row">
+
+              <div class="col-md-6">
+                <mat-form-field class="registration_id mb-2" [ngStyle]="{'display':'none'}">
+                  <mat-label class="ml-1">registration_id</mat-label>
+                  <mat-icon matPrefix><i class="fa fa-user"></i></mat-icon>
+                  <input type="text" matInput formControlName="registration_id">
+                </mat-form-field>
+                <mat-form-field class="inputstyle mb-2 ">
+                  <mat-label class="ml-1">Building</mat-label>
+                  <mat-icon matPrefix><i class="fa fa-building"></i></mat-icon>
+                  <input type="text" matInput formControlName="building">
+                  <mat-error
+                    *ngIf="!frmDeliveryAddress.controls['building'].valid && frmDeliveryAddress.controls['building'].touched">
+                    <p *ngIf="frmDeliveryAddress.controls['building'].hasError('required')">Please Enter The Building !
+                    </p>
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="inputstyle mb-2">
+                  <mat-label class="ml-1">State</mat-label>
+                  <mat-icon matPrefix><i class="fa fa-university"></i></mat-icon>
+                  <input type="text" matInput formControlName="state">
+                  <mat-error
+                    *ngIf="!frmDeliveryAddress.controls['state'].valid && frmDeliveryAddress.controls['state'].touched">
+                    <p *ngIf="frmDeliveryAddress.controls['state'].hasError('required')">Please Enter The State !</p>
+                  </mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field class="inputstyle mb-2">
+                  <mat-label class="ml-1">Pincode</mat-label>
+                  <mat-icon matPrefix><i class="fa fa-list"></i></mat-icon>
+                  <input type="text" matInput formControlName="pincode">
+                  <mat-error
+                    *ngIf="!frmDeliveryAddress.controls['pincode'].valid && frmDeliveryAddress.controls['pincode'].touched">
+                    <p *ngIf="frmDeliveryAddress.controls['pincode'].hasError('required')">Please Enter The Pincode !
+                    </p>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="inputstyle mb-2">
+                  <mat-label class="ml-1">City</mat-label>
+                  <mat-icon matPrefix><i class="fa fa-paper-plane"></i></mat-icon>
+                  <input type="text" matInput formControlName="city">
+                  <mat-error
+                    *ngIf="!frmDeliveryAddress.controls['city'].valid && frmDeliveryAddress.controls['city'].touched">
+                    <p *ngIf="frmDeliveryAddress.controls['city'].hasError('required')">Please Enter The City Name !</p>
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field class="inputstyle mb-2">
+                  <mat-label class="ml-1">Country</mat-label>
+                  <mat-icon matPrefix><i class="fa fa-user"></i></mat-icon>
+                  <input type="text" matInput formControlName="country">
+                  <mat-error
+                    *ngIf="!frmDeliveryAddress.controls['country'].valid && frmDeliveryAddress.controls['country'].touched">
+                    <p *ngIf="frmDeliveryAddress.controls['country'].hasError('required')">Please Enter The Country Name
+                      !</p>
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field class="inputstyle mb-2">
+                  <mat-label>Land Mark</mat-label>
+                  <mat-icon matPrefix><i class="fa fa-address-book-o"></i></mat-icon>
+                  <textarea matInput formControlName="address1"></textarea>
+                  <mat-error
+                    *ngIf="!frmDeliveryAddress.controls['address1'].valid && frmDeliveryAddress.controls['address1'].touched">
+                    <p *ngIf="frmDeliveryAddress.controls['address1'].hasError('required')">Please Enter The Address !
+                    </p>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button mat-raised-button color="primary" class="rounded-pill pull-right"
+              [disabled]="!frmDeliveryAddress.valid">Save</button>
+            <button mat-raised-button color="warn" class="rounded-pill pull-left" (click)="resetFrom()">Reset</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

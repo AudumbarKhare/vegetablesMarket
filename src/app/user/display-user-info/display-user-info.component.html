@@ -1,0 +1,95 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-md-3">
+            <app-user-right-side-menu></app-user-right-side-menu>
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                   <i class="fa fa-user"></i> User Info
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="pull-left img_display">
+                            
+                             <img src="{{userInfos?.image_url}}" alt="" *ngIf="userInfos?.image_url!=''; else elseBlock;">
+                             <ng-template #elseBlock>
+                                <img src="../../../assets/images/user1.png">
+                             </ng-template>  
+                        </div>
+                        <div class="pull-right ml-3 user_details">
+            
+                             <p><span>User Name :</span> {{userInfos?.username}}</p> 
+                             <!--User Name-->
+                            <div *ngIf="userInfos?.firstname !='' && userInfos?.lastname!=''; then isUserBlock; else NotUserBlock"></div>  
+                            <ng-template #isUserBlock>
+                               <p><span>Name :</span>  {{userInfos?.firstname}} {{userInfos?.lastname}}</p> 
+                            </ng-template>
+                            <ng-template #NotUserBlock>
+                                <p><span>Name :</span>  <span class="text-danger"> Not Available</span></p> 
+                             </ng-template>
+                             <!--End User Name-->
+                             <!--Phone No-->
+                             <div *ngIf="userInfos?.phone!=''; then isPhoneNo; else notPhoneNo;"></div>
+                             <ng-template #isPhoneNo>
+                                <p><span>Phone No:</span>  {{userInfos?.phone}} </p>
+                             </ng-template>
+                             <ng-template #notPhoneNo>
+                                <p><span>Phone No:</span>  <span class="text-danger"> Not Available</span> </p>
+                            </ng-template>
+                            <!--End Phone no-->
+                            <!--Email Id-->
+                            <div *ngIf="userInfos?.email!=''; then isEmailId; else notEmailId;"></div>
+                            <ng-template #isEmailId>
+                                <p><span>Email Id:</span>  {{userInfos?.email}} </p>
+                            </ng-template>
+                            <ng-template #notEmailId>
+                               <p><span>Email Id:</span>  <span class="text-danger">Not Available</span> </p>
+                           </ng-template>
+                            <!--End Email Id-->
+                            <!--Permanent Address-->
+                            <div *ngIf="userInfos?.address1!=''; then isPermanent; else notPermanent;"></div>
+                            
+                            <ng-template #isPermanent>
+                                 <p><span>Permanent Address:</span><br><!--<br>
+                                    <span>City :</span> {{userInfos?.city}}
+                                    <span>State :</span> {{userInfos?.state}}
+                                    <span>Country</span> {{userInfos?.country}}
+                                    <span>Pin Code</span>{{userInfos?.pincode}}
+                                    <span>Address</span>--> {{userInfos?.address1}} 
+                                </p>
+                            </ng-template>
+                            <ng-template #notPermanent>
+                                <p><span>Permanent Address:</span><br><br>
+                                    <span class="text-danger">Not Available</span>
+                                </p>
+                           </ng-template>
+                            <!--End Permanent Address-->
+                            
+                            <!--Delivery Address-->
+                            <div *ngIf="userInfos?.address2!=''; then isDelivery; else notDelivery;"></div>
+                            
+                            <ng-template #isDelivery>
+                                <p><span>Delivery Address:</span><br><br>
+                                    {{userInfos?.address2}}
+                                </p>
+                            </ng-template>
+                            <ng-template #notDelivery>
+                                <p><span>Delivery Address:</span><br><br>
+                                    <span class="text-danger">Not Available</span>
+                                </p>
+                           </ng-template>
+                            <!--End Permanent Address-->
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>  
+</div>
+
+

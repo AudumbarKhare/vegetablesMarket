@@ -1,0 +1,81 @@
+.label_name,.label_email,.label_address{
+    margin-top: 5px;
+    width: 100%;
+}
+h3.tittle {
+    color: #000;
+    font-size: 38px;
+    letter-spacing: 1px;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.19);
+}
+
+h3.tittle span {
+    color: #fe9126;
+    font-size: 50px;
+    letter-spacing: 0;
+}
+.welcome-left h3 {
+    color: #F45C5D;
+    font-size: 36px;
+    letter-spacing: 1px;
+}
+
+.welcome-left h4 {
+    color: #464646;
+    font-size: 17px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+}
+p {
+    margin: 0;
+    letter-spacing: 1px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #999;
+    font-family: 'Open Sans', sans-serif;
+}
+////
+.testimonials {
+    background: url(../../../assets/images/fruits_banner.jpg) no-repeat center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    -moz-background-size: cover;
+}
+.med-testi {
+    position: relative;
+    background: #fff;
+    -webkit-box-shadow: 5px 10px 10px 0px rgba(10, 10, 10, 0.48);
+    -moz-box-shadow: 5px 10px 10px 0px rgba(10, 10, 10, 0.48);
+    box-shadow: 5px 10px 10px 0px rgba(10, 10, 10, 0.48);
+}
+
+div#testimonials h4.m-title {
+    font-size: 2.8em;
+}
+
+.test-tooltip:before {
+    content: '';
+    position: absolute;
+    left: 10%;
+    bottom: -11.5%;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 18px solid #fe9126;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+}
+
+.med-testi-txt h4 {
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.med-testi-txt p {
+    color: #fff7f7;
+}

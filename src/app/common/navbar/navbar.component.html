@@ -1,0 +1,95 @@
+<div class="main-menu" #stickyMenu>
+  <nav id="navbar_top" class="navbar navbar-expand-lg navbar-light bg-white shadow rounded">
+    <a class="navbar-brand" href="#">
+      <img src="../assets/images/logo1.png">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto left-side-menu-item">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/home']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/productList']">Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/about']">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/contact-us']">Contact Us</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav right-side-menu-item">
+        <li class="nav-item" *ngIf="!logginStatus">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/user/login']"><i class="fa fa-user"></i> Log
+            in</a>
+        </li>
+        <li class="nav-item" *ngIf="!logginStatus">
+          <a class="nav-link" [routerLink]="['/user/user-registration']"> <i class="fa fa-pencil-square-o"></i> Register
+            Now</a>
+        </li>
+        <li class="nav-item navItem" *ngIf="logginStatus">
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <div>
+              <img class="rounded-circle" src="{{imageUrl}}" alt="" [ngStyle]="{'width':'40px','height':'40px'}">
+            </div>
+          </button>
+          <mat-menu #menu="matMenu" class="userDropDownMenu">
+            <div mat-menu-item id="userDropDownItem">
+              <a routerLink="/user/user-info">
+                <mat-icon>account_circle</mat-icon>
+                <span>{{username|titlecase}}</span>
+              </a>
+            </div>
+            <mat-divider></mat-divider>
+            <div mat-menu-item id="userDropDownItem">
+              <a routerLink="/user/user-info">
+                <mat-icon>visibility</mat-icon>
+                <span>User Profile</span>
+              </a>
+            </div>
+            <mat-divider></mat-divider>
+            <div mat-menu-item id="userDropDownItem">
+              <a routerLink="/user/user-info/edit-user-info">
+                <mat-icon>edit</mat-icon>
+                <span>Edit Profile</span>
+              </a>
+            </div>
+            <mat-divider></mat-divider>
+
+            <div mat-menu-item id="userDropDownItem">
+              <a routerLink="/user/user-info/change-password">
+                <mat-icon>visibility_off</mat-icon>
+                <span>Change Password</span>
+              </a>
+            </div>
+            <mat-divider></mat-divider>
+            <div mat-menu-item (click)="logout()" id="userDropDownItem">
+              <mat-icon>power_settings_new</mat-icon>
+              <span>Log Out</span>
+            </div>
+
+          </mat-menu>
+        </li>
+
+
+        <li class="nav-item">
+          <!-- <i class="fa fa-shopping-cart"></i>  Items - ( <i class="fa fa-inr"></i> {{totalPrice|number:'0.2-2'}} )</a> -->
+          <a [routerLink]="['/product']" class="nav-link">
+            <mat-icon matBadge="{{productCount}}" matBadgeColor="warn">add_shopping_cart</mat-icon>
+          </a>
+        </li>
+        <li class="nav-item">
+          <!-- <i class="fa fa-shopping-cart"></i>  Items - ( <i class="fa fa-inr"></i> {{totalPrice|number:'0.2-2'}} )</a> -->
+          <a [routerLink]="['/product/add-to-favorite-card']" class="nav-link">
+            <mat-icon matBadge="{{countFavoriteProducts}}" matBadgeColor="warn">favorite</mat-icon>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

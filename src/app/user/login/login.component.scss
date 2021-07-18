@@ -1,0 +1,48 @@
+.signup-image-link {
+    font-size: 14px;
+    color: #222;
+    display: block;
+    text-align: center;
+    letter-spacing: 0.1rem;
+    font-size: 16px;
+}
+.signup-image-link:hover{
+    text-decoration: none;
+}
+mat-form-field{
+    width: 100%;
+}
+figure {
+    margin-bottom: 30px;
+    text-align: center;
+}
+.social-login {
+    align-items: center;
+    -moz-align-items: center;
+    -webkit-align-items: center;
+    -o-align-items: center;
+    -ms-align-items: center;
+    margin-top: 80px;
+}
+.social-label {
+    display: inline-block;
+    margin-right: 15px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+  }
+  
+  li {
+    float: left;
+    padding: 5px;
+  }
+  
+  li a {
+    display: block;
+    text-decoration: none;
+    font-size: 18px;
+  }

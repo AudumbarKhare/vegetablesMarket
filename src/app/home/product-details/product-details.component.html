@@ -1,0 +1,66 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+<div class="container pt-5 row">
+
+  <!-- Left Column / Headphones Image -->
+  <div class="col-md-6">
+    <div class="left-side">
+      <span>{{productList?.stock_status|titlecase}}</span>
+        <img src="../{{productList?.item_image}}" alt="">
+        
+    </div>
+    
+  </div>
+  <!-- Right Column -->
+  <div class="col-md-6">
+
+    <!-- Product Description -->
+    <div class="product-description">
+      <span class="pb-2 badge badge-pill badge-warning">{{productList?.category_name|titlecase}}</span>
+      <br><br><br><br>
+      <h1>{{productList?.item_name}}</h1>
+      <p>{{productList?.description}}</p>
+    </div>
+
+    <!-- Product Configuration -->
+    <div class="product-configuration flex">
+      <!-- Cable Configuration -->
+      <div class="cable-config">
+        <span>Rate</span>
+
+        <div class="cable-choose">
+          <div class="stars item-center justify-content-center">
+            <i class="fa fa-star fa-2x text-warning"></i>
+            <i class="fa fa-star fa-2x text-warning"></i>
+            <i class="fa fa-star fa-2x text-warning"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+        </div>
+      </div>
+      <div class="cable-config ml-4">
+        <span>Price</span>
+
+        <div class="cable-choose">
+          <div class="price item-center justify-content-center">
+            <i class="fa fa-inr"></i> {{productList?.item_sales_price|number:'0.2'}} / {{productList?.uom_code}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Pricing -->
+    <div class="product-price">
+      <button mat-mini-fab class="bg-warning" (click)="addToCard(productList)">
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+
+      <button mat-mini-fab color="warn" class="ml-3">
+        <mat-icon>favorite</mat-icon>
+      </button>
+
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
